@@ -1,0 +1,35 @@
+﻿@page
+@model Ejercicio3_Prestamo_Y_Cajero.Pages.CajeroModel
+@{
+}
+<h1>Cajero</h1>
+<h4>Dinero disponible @Model.totaldisponiblecajero</h4>
+<div class="">
+    <form method="post" class="form-group form-inline">
+        @*<div class="">
+            <select>
+                <option value="bancoABC">Banco ABC</option>
+                <option value="">Otro Banco</option>
+            </select>
+            <label class="form-text col-form-label">Banco</label>
+            <input type="checkbox" class="form-check-input" id="@Model.bancoABC" name="@Model.bancoABC" value="@Model.bancoABC" />
+            
+        </div>*@
+        <div class="">
+            <label for="cantidadretiro" class="form-text col-form-label">introduzca el monto</label>
+            <input type="number" class="form-control" id="cantidadretiro" name="cantidadretiro" value="0" />
+            @if (Model.error)
+            {
+                <span class="alert-danger">@Model.mensaje</span>
+            }
+            <input type="submit" class="btn btn-success" value="Enviar" />
+        </div>
+    </form>
+</div>
+
+<ul>
+    @foreach (var item in Model.papeletas)
+    {
+        <li>Billetes de @item.valor: @item.cantidadenuso </li>
+    }
+</ul>
